@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_app/singin/model/fr_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -5,6 +7,7 @@ class FirebaseHelper {
   static FirebaseHelper helper = FirebaseHelper();
 
   FirebaseAuth auth = FirebaseAuth.instance;
+  FirebaseFirestore firestore=FirebaseFirestore.instance;
   Future<String> load() async {
 
     try {
@@ -77,6 +80,19 @@ class FirebaseHelper {
     var photo=user.photoURL;
     return {"email":email,"name":name,"number":number,"photo":photo};
   }
+  /*=============Firebasem Firestore*/
+
+  void addproduct(ProductModel model)
+  {
+    firestore.collection("Product").add({
+      "name":model.name,
+      "price":model.price,
+      "category":model.category,
+      "desc":model.desc,
+    });
+  }
+
+
 
 
 }
