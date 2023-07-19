@@ -92,6 +92,11 @@ class FirebaseHelper {
     });
   }
 
+  Stream<QuerySnapshot<Map<String, dynamic>>> readProduct()
+  {
+    return firestore.collection("Product").snapshots();
+  }
+
 
 
 
