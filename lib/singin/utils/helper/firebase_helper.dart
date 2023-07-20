@@ -99,5 +99,23 @@ class FirebaseHelper {
 
 
 
+  void deleteData(String id)
+  {
+    firestore.collection("Product").doc("${id}").delete();
+  }
+
+  void updateData(ProductModel model)
+  {
+    firestore.collection("Product").doc(model.id).set({
+      "name":model.name,
+      "desc":model.desc,
+      "category":model.category,
+      "price":model.price,
+      "photo":model.photo
+    });
+
+  }
+
+
 
 }
