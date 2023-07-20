@@ -1,6 +1,7 @@
 import 'package:firebase_app/singin/controller/fir_controller.dart';
 import 'package:firebase_app/singin/utils/helper/firebase_helper.dart';
 import 'package:firebase_app/singin/view/tebbar_screen/add_screen.dart';
+import 'package:firebase_app/singin/view/tebbar_screen/show_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,15 +30,15 @@ class _HomeScreenState extends State<HomeScreen> {
           title: Text("Home Screen"),
           bottom: TabBar(
             tabs: [
+              Tab(child: Text("Show Product")),
               Tab(child: Text("Add Product")),
-              Tab(child: Text(" Product")),
             ],
             indicatorColor: Colors.white,
           ),
         ),
         body: TabBarView(
           children: [
-            AddProductScreen(),
+            ShowScreen(),
             AddProductScreen(),
           ],
         ),
