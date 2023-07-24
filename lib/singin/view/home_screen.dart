@@ -1,4 +1,5 @@
 import 'package:firebase_app/singin/controller/fir_controller.dart';
+import 'package:firebase_app/singin/service/service_class.dart';
 import 'package:firebase_app/singin/utils/helper/firebase_helper.dart';
 import 'package:firebase_app/singin/view/tebbar_screen/add_screen.dart';
 import 'package:firebase_app/singin/view/tebbar_screen/show_screen.dart';
@@ -28,6 +29,11 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: Text("Home Screen"),
+          actions: [
+            IconButton(onPressed: () {
+              NotificationService.service.simpleNotification();
+            }, icon: Icon(Icons.notifications_active_outlined))
+          ],
           bottom: TabBar(
             tabs: [
               Tab(child: Text("Show Product")),

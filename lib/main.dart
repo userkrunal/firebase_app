@@ -1,3 +1,4 @@
+import 'package:firebase_app/singin/service/service_class.dart';
 import 'package:firebase_app/singin/view/frist_screen.dart';
 import 'package:firebase_app/singin/view/home_screen.dart';
 import 'package:firebase_app/singin/view/singin_screen.dart';
@@ -15,6 +16,9 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+
+  NotificationService.service.initNotification();
   runApp(
     Sizer(builder: (context, orientation, deviceType) {
       return GetMaterialApp(
